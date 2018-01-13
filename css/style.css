@@ -1,5 +1,6 @@
 .titleText {
   font-size: 7em;
+  color: white;
 }
 
 .color {
@@ -8,4 +9,10 @@
 
 .headText{
   font-size: 2.5em;
+  color: white;
+}
+
+.subText{
+  font-size: 1.5em;
+  color: white;
 }

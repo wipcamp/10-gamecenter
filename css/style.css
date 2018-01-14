@@ -1,18 +1,28 @@
 .titleText {
   font-size: 7em;
   color: white;
+  text-shadow: black 0.05em 0.05em 0.1em;
+  font-family: "../webfonts/ThaiSansNeue-Bold.otf";
 }
 
 .color {
-  background-color: #937FAD;
+  background-color: #937fad;
 }
 
-.headText{
+.headText {
   font-size: 2.5em;
   color: white;
+  text-shadow: black 0.05em 0.05em 0.1em;
 }
 
-.subText{
+.subText {
   font-size: 1.5em;
   color: white;
+  text-shadow: black 0.05em 0.05em 0.1em;
+}
+
+.text {
+  color: white;
+  text-shadow: black 0.05em 0.05em 0.1em;
+  font-family: "../webfonts/ThaiSansNeue-Bold.otf";
 }

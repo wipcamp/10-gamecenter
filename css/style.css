@@ -58,6 +58,7 @@
 }
 
 .logo{
+  content: url("../img/logo1.png");
   position: absolute;
   z-index: 0;
   width: 20%;
@@ -65,6 +66,9 @@
   left: 21%;
   cursor: pointer;
   animation: pulse 1.5s infinite;
+}
+.logo:hover{
+  content: url("../img/logo_t.png");
 }
 
 @keyframes cloud {

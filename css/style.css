@@ -65,7 +65,7 @@
   top: 55%;
   left: 21%;
   cursor: pointer;
-  animation: pulse 1.5s infinite;
+  animation: tada 1.5s infinite;
 }
 .logo:hover{
   content: url("../img/logo_t.png");

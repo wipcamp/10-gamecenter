@@ -1,20 +1,81 @@
+.body {
+  font-family: Pridi;
+  src: url('../webfonts/Pridi-Light.ttf');
+  overflow: hidden;
+  background:linear-gradient(to top, #B7CFEB,#6791BC);
+  background-size: 70%;
+  width: 100vw;
+  height: 100vh; 
+}
+.bg{
+  width: 75%;
+  left: 10%;
+  margin-top: -5%;
+  position: absolute;
+  z-index: -2;
+}
 .titleText {
   font-size: 7em;
   color: white;
-  text-shadow: black 0.05em 0.05em 0.1em;
-  font-family: "../webfonts/ThaiSansNeue-Bold.otf";
+  transition: all 500ms ease-in-out;
+  text-shadow: .03em .03em rgba(0,0,0,1);
+}
+.bgleft{
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  width: 30%;
+  margin-left: -1%;
+  margin-top: -3%;
+}
+.cloud{
+  position: absolute;
+  z-index: -3;
+  top: 30%;
+  width: 100%;
+  animation: cloud 50s  linear infinite;
 }
 
-.color {
-  background-color: #937fad;
+.bgright{
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  width: 30%;
+  margin-top: -3%;
+}
+.bgbottom{
+  bottom: 0;
+  z-index: -1;
+  width: 105%;
+  position: absolute;
 }
 
 .headText {
   font-size: 2.5em;
   color: white;
-  text-shadow: black 0.05em 0.05em 0.1em;
+  animation: flash 1.5s infinite 2s;
+  text-shadow: .03em .03em rgba(0,0,0,1);
 }
 
+.logo{
+  position: absolute;
+  z-index: 0;
+  width: 20%;
+  top: 55%;
+  left: 21%;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes cloud {
+  0%{
+    left: -85%;
+  }
+  100%{
+    left: 100%;
+  }
+
+}
 .subText {
   font-size: 1.5em;
   color: white;
@@ -24,5 +85,8 @@
 .text {
   color: white;
   text-shadow: black 0.05em 0.05em 0.1em;
-  font-family: "../webfonts/ThaiSansNeue-Bold.otf";
+}
+
+.boundIn {
+  animation: bounceInDown 2s ;  
 }

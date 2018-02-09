@@ -90,3 +90,28 @@
 .boundIn {
   animation: bounceInDown 2s ;  
 }
+
+.ques{
+  font-size: 7em;
+  margin-top: 20%; 
+  margin-right: 31%;
+  color: #fff;
+  text-shadow: black 0.05em 0.05em 0.1em;
+  animation: swapcolor 1s infinite;
+}
+
+.swap{
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes swapcolor{
+  0%{
+    color:#fff;
+  }
+  50%{
+    color:#ffbf00;
+  }
+  100%{
+    color: #fff;
+  }
+}

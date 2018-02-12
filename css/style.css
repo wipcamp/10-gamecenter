@@ -5,8 +5,15 @@
   background:linear-gradient(to top, #B7CFEB,#6791BC);
   background-size: 70%;
   width: 100vw;
-  height: 100vh; 
+  height: 150vh; 
 }
+
+@media screen and (min-width: 320px) {
+  .body {
+      height: 150vh;
+  }
+}
+
 .bg{
   width: 75%;
   left: 10%;
@@ -14,11 +21,37 @@
   position: absolute;
   z-index: -2;
 }
+
 .titleText {
   font-size: 7em;
   color: white;
   transition: all 500ms ease-in-out;
   text-shadow: .03em .03em rgba(0,0,0,1);
+}
+@media screen and (min-width: 320px) {
+  .body {
+    font-size: 0.4em;
+  }
+}
+@media screen and (min-width: 412px) {
+  .body {
+    font-size: 0.5em;
+  }
+}
+@media screen and (min-width: 576px) {
+  .body {
+    font-size: 0.6em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .body {
+    font-size: 0.7em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .body {
+    font-size: 0.8em;
+  }
 }
 .bgleft{
   left: 0;

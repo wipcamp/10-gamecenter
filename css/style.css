@@ -55,6 +55,19 @@
   .body {
     font-size: 0.4em;
   }
+  .bottombg{
+    width: 170vw;
+    margin-left: -40%;
+  }
+  .bg{
+    width: 170vw;
+    bottom:0;
+    position: absolute;
+    z-index: -2;
+    margin-left: -40%;
+    /* left: 50%;
+    transform: translate(-50%, 0%); */
+  }
 
 }
 @media screen and (max-width: 1023px) {
@@ -106,6 +119,19 @@
     position: absolute;
     z-index: -1;
     height: 100vh;
+  }
+  .bottombg{
+    width: 100vw;
+    margin-left: 0%;
+  }
+  .bg{
+    width: 100vw;
+    bottom:0;
+    position: absolute;
+    z-index: -2;
+    margin-left: 0%;
+    /* left: 50%;
+    transform: translate(-50%, 0%); */
   }
 }
 .bgleft{

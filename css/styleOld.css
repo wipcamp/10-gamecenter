@@ -1,0 +1,236 @@
+.body {
+  font-family: Pridi;
+  src: url('../webfonts/Pridi-Light.ttf');
+  overflow: hidden;
+  background:linear-gradient(to top, #B7CFEB,#6791BC);
+  background-size: 70%;
+  width: 100vw;
+  height: 150vh; 
+}
+@media screen and (min-width: 320px) {
+  .body {
+      height: 150vh;
+  }
+}
+
+.bg{
+  width: 100vw;
+  bottom:0;
+  position: absolute;
+  z-index: -2;
+  /* left: 50%;
+  transform: translate(-50%, 0%); */
+}
+.bgBackLeft{
+  position: absolute;
+  height: 50vh;
+  bottom:0;
+  left: -1vw;
+  z-index: -5;
+}
+.bgBackCenter{
+  position: absolute;
+  height: 80vh;
+  bottom:0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: -3;
+}
+.bgBackRight{
+  position: absolute;
+  height: 50vh;
+  bottom:0;
+  right: -1vw;
+  z-index: -4;
+}
+
+.titleText {
+  font-size: 7em;
+  color: white;
+  transition: all 500ms ease-in-out;
+  text-shadow: .03em .03em rgba(0,0,0,1);
+}
+@media screen and (min-width: 320px) {
+  .body {
+    font-size: 0.4em;
+  }
+  .bottombg{
+    width: 170vw;
+    margin-left: -40%;
+  }
+  .bg{
+    width: 170vw;
+    bottom:0;
+    position: absolute;
+    z-index: -2;
+    margin-left: -40%;
+    /* left: 50%;
+    transform: translate(-50%, 0%); */
+  }
+
+}
+@media screen and (max-width: 1023px) {
+  .bgleft{
+    display: none;
+  }
+  .bgright{
+    display: none;
+  }
+}
+@media screen and (min-width: 412px) {
+  .body {
+    font-size: 0.5em;
+  }
+  
+}
+@media screen and (min-width: 576px) {
+  .body {
+    font-size: 0.6em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .body {
+    font-size: 0.7em;
+  }
+  .bgBackLeft{
+    height: 70vh;
+  }
+  .bgBackRight{
+    height: 70vh;
+  }
+  
+}
+@media screen and (min-width: 1024px) {
+  .body {
+    font-size: 0.8em;
+  }
+  .bgleft{
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    margin-left: -1%;
+  }
+  .bgright{
+    right: 0;
+    bottom:0;
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+  }
+  .bottombg{
+    width: 100vw;
+    margin-left: 0%;
+  }
+  .bg{
+    width: 100vw;
+    bottom:0;
+    position: absolute;
+    z-index: -2;
+    margin-left: 0%;
+    /* left: 50%;
+    transform: translate(-50%, 0%); */
+  }
+}
+.bgleft{
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+  height: 100vh;
+  margin-left: -1%;
+  /* margin-top: -3%; */
+}
+.cloud{
+  position: absolute;
+  z-index: -6;
+  top: 30%;
+  width: 100%;
+  animation: cloud 50s  linear infinite;
+}
+
+.bgright{
+  right: 0;
+  bottom:0;
+  position: absolute;
+  z-index: -1;
+  height: 100vh;
+}
+.bgbottom{
+  bottom: 0;
+  z-index: -1;
+  width: 105%;
+  position: absolute;
+}
+
+.headText {
+  font-size: 2.5em;
+  color: white;
+  animation: flash 1.5s infinite 2s;
+  text-shadow: .03em .03em rgba(0,0,0,1);
+}
+
+.logo{
+  content: url("../img/logo1.png");
+  position: absolute;
+  z-index: 0;
+  width: 20%;
+  top: 55%;
+  left: 21%;
+  cursor: pointer;
+  animation: tada 1.5s infinite;
+}
+.logo:hover{
+  content: url("../img/logo_t.png");
+}
+
+@keyframes cloud {
+  0%{
+    left: -85%;
+  }
+  100%{
+    left: 100%;
+  }
+
+}
+.subText {
+  font-size: 1.5em;
+  color: white;
+  text-shadow: black 0.05em 0.05em 0.1em;
+}
+
+.text {
+  color: white;
+  text-shadow: black 0.05em 0.05em 0.1em;
+}
+
+.boundIn {
+  animation: bounceInDown 2s ;  
+}
+
+.ques{
+  font-size: 7em;
+  margin-top: 20%; 
+  margin-right: 31%;
+  color: #fff;
+  text-shadow: black 0.05em 0.05em 0.1em;
+  animation: swapcolor 1s infinite;
+  cursor: no-drop;
+}
+
+.swap{
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes swapcolor{
+  0%{
+    color:#fff;
+  }
+  50%{
+    color:#ffbf00;
+  }
+  100%{
+    color: #fff;
+  }
+}

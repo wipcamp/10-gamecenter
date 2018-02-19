@@ -6,8 +6,15 @@ body{
 .scorebar{
   width:50%;  
 }
-@media screen and (max-width: 720px) {
-  .scorebarhidden{
+
+@media(orientation:landscape)
+  and (max-width:800px){
+    .scorebarhidden{
     display: none;
   }
+}
+.blackbox{
+  width:800px;
+  height:600px;
+  background-color: black;
 }

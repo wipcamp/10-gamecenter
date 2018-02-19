@@ -46,6 +46,7 @@ big{
     z-index: 0;
     width: 10vw;
     animation: tada 1.5s infinite;
+    cursor: no-drop;
 }
 @media (min-width: 769px) {
     .hiddenMoblie{

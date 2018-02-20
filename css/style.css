@@ -2,110 +2,225 @@ body {
     font-family: Pridi;
     src: url('../webfonts/Pridi-Light.ttf');
     overflow: hidden;
+    height: 100vh;
+    margin: 0;
 }
 .bggame{
     background-color: #333;
-    background-image: url('../img/bggame1.png');
-    /* background-image: url('../img/games.png'); */
-    background-size: 85%;
+    background-image: url('../img/bg1.png');
+    background-size: 200%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
+    background-position: 50% 50%;
+}
+.Div1{
+    position: relative;
     height: 100vh;
-}
-.gCenter{
-    width: 25vw;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-}
-.logo{
-    content: url("../img/logo1.png");
     z-index: 0;
-    cursor: pointer;
-    width: 20vw;
-    animation: tada 1.5s infinite;
 }
-.logo:hover{
-    width: 20vw;
-    content: url("../img/logo_t.png");
-}
-.torch1{
+.DivCharacter1{
+    position: absolute;
+    width: 100vw;
     height: 50vh;
-    -webkit-transform: rotateY(150deg); /* Safari */
-    transform: rotateY(150deg); /* Standard syntax */
+    top: 0;
 }
-.torch2{
+.DivCharacter2{
+    position: absolute;
+    width: 100vw;
     height: 50vh;
-}
-big{
-    font-family: Pridi;
-    src: url('../webfonts/Pridi-Light.ttf');
-    font-size: 1000pt;
-}
-.what{
-    z-index: 0;
-    width: 10vw;
-    animation: tada 1.5s infinite;
-    cursor: no-drop;
-}
-@media (min-width: 769px) {
-    .hiddenMoblie{
-        display: none;
-    }
-}
-@media (max-width: 769px) {
-    .hiddenDesktop{
-        display: none;
-    }
+    bottom: 0;
 }
 
-@media (max-width: 768px) and (min-width: 320px) {
+.model1{
+    position: absolute;
+    width: 30vw;
+    right: 5vw;
+    bottom: 5vh;
+}
+.model2{
+    position: absolute;
+    width: 30vw;
+    left: -5vw;
+    bottom: 0vh;
+}
+.model3{
+    position: absolute;
+    width: 25vw;
+    right: 0;
+    top: 2vh;
+}
+.model4{
+    position: absolute;
+    width: 40vw;
+    left: 10vw;
+    top: 5vh;
+}
+.Div2{
+    position: relative;
+    height: 100vh;
+    z-index: 1;
+    top: -100;
+}
+.torchMobileLeft{
+    position: absolute;
+    height: 30vh;
+    bottom: 0;
+    left: 0;
+}
+.torchMobileRight{
+    position: absolute;
+    height: 30vh;
+    bottom: 0;
+    right: 0;
+}
+.torchLeft{
+    position: absolute;
+    height: 40vh;
+    bottom: 0;
+    left: 15vw;
+    display: none;
+}
+.torchRight{
+    position: absolute;
+    height: 40vh;
+    bottom: 0;
+    right: 15vw;
+    display: none;
+}
+.Div3{
+    position: relative;
+    height: 100vh;
+    z-index: 2;
+    top: -200;
+}
+.gCenter{
+    position: absolute;
+    top: 5vh;
+    left: 15vw;
+    width: 70vw;
+}
+.game1{
+    position: absolute;
+    top: 30vh;
+    left: 5vw;
+    width: 40vw;
+}
+.game2{
+    position: absolute;
+    top: 50vh;
+    right: 10vw;
+    width: 20vw;
+}
+@media (min-width: 414px) {
     .bggame{
-        background-color: #333;
-        background-image: url('../img/bggame1.png');
-        /* background-image: url('../img/games.png'); */
-        background-size: 200%;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-        height: 100vh;
+        background-size: 150%;
+    }
+    .model1{
+        width: 20vw;
+    }
+    .model2{
+        width: 20vw;
+        left: 3vw;
+    }
+    .model3{
+        width: 15vw;
+        right: 5vw;
+    }
+    .model4{
+        width: 30vw;
+        left: 15vw;
+    }
+}
+@media (min-width: 576px) {
+    .bggame{
+        background-size: 100%;
+    }
+    .model1{
+        width: 18vw;
+        right: 15vw;
+    }
+    .model2{
+        width: 18vw;
+        left: 20vw;
+    }
+    .model3{
+        top: 0;
+        width: 10vw;
+        right:20vw;
+    }
+    .model4{
+        width: 19vw;
+    }
+    .torchMobileLeft{
+        display: none;
+    }
+    .torchMobileRight{
+        display: none;
+    }
+    .torchLeft{
+        display: inline;
+    }
+    .torchRight{
+        display: inline;
     }
     .gCenter{
-        width: 55vw;
-        margin-top: 10vh;
-        margin-bottom: 10vh;
+        top: 10vh;
+        left: 25vw;
+        width: 50vw;
     }
-    .torch1{
-        height: 30vh;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        -webkit-transform: rotateY(150deg); /* Safari */
-        transform: rotateY(150deg); /* Standard syntax */
+    .game1{
+        left: 15vw;
+        width: 30vw;
     }
-    .torch2{
-        height: 30vh;
-        width: auto;
-        position: fixed;
-        bottom: 0;
-        right: 0;
+    .game2{
+        right: 15vw;
+        width: 15vw;
     }
-    .logo{
-        content: url("../img/logo1.png");
-        z-index: 0;
-        cursor: pointer;
-        width: 40vw;
-        animation: tada 1.5s infinite;
-        margin-bottom: 10vh;
+}
+@media (min-width: 720px){
+    .gCenter{
+        top: 5vh;
     }
-    .logo:hover{
-        width: 40vw;
-        content: url("../img/logo_t.png");
+    .game1{
+        top: 35vh;
+        left: 5vw;
+        width: 35vw;
     }
-    .what{
-        z-index: 0;
+    .game2{
+        top: 38vh;
+    }
+}
+@media (min-width: 1024px) {
+    .bggame{
+        background-size: 80%;
+    }
+    .model1{
+        width: 15vw;
+        right: 20vw;
+    }
+    .model2{
+        width: 12vw;
+        left: 30vw;
+    }
+    .model3{
+        top: 0;
+        width: 10vw;
+        right:30vw;
+    }
+    .model4{
+        width: 12vw;
+        left: 25vw;
+    }
+    .gCenter{
+        width: 30vw;
+        left: 35vw;
+    }
+    .game1{
+        left: 20vw;
         width: 25vw;
-        animation: tada 1.5s infinite;
     }
-    
+    .game2{
+        right: 20vw;
+        width: 10vw;
+    }
 }

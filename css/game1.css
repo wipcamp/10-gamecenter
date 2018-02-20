@@ -3,8 +3,9 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
 }
-.scorebar{
-  width:50%;  
+.progress{
+  width:50%;
+  height: 100px;  
 }
 
 @media(orientation:landscape)
@@ -18,3 +19,12 @@ body{
   height:600px;
   background-color: black;
 }
+.game{
+  margin-top: 4%;
+  width: 800px;
+  height: 600px;
+  border: .1em solid #000;
+}
+.progress-bar{
+  height: 100px;
+} 

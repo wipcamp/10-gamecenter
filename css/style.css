@@ -5,6 +5,14 @@
     height: 100vh;
     margin: 0;
 }
+@keyframes fallingDown{
+    from {
+        margin-top: -10%;
+    }
+    to{
+        margin-top: 70%;
+    }
+}
 .bggame{
     background-image: url('../img/bg1.png');
     background-color: #333;
@@ -133,10 +141,7 @@
     right: 10vw;
     width: 20vw;
 }
-.stone {
-    width: 50%;
-    top: -100vh;
-}
+
 @media (min-width: 414px) {
     .bggame{
         background-size: 150%;

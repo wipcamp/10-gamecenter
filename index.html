@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Game Center | WIP Camp #10</title>
+  <link rel="icon" href="./img/favicon/favicon.ico" type="/image/x-icon" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <script src="./js/bootstrap.min.js"/> -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/parallex.css" />
+  <link rel="stylesheet" href="./css/animate.css" />
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Game Center | WIP Camp #10" />
+  <meta name="keywords" content="wipcamp,itcamp,ค่ายไอที,ค่ายคอม,game,เล่นเกมส์,gamewipcamp" />
+  <meta property="og:title" content="Game Center | WIP Camp #10"/>
+  <meta property="og:type" content="company"/>
+  <meta property="og:url" content="https://game.wip.camp/"/>
+  <meta property="og:image" content="https://game.wip.camp/img/Og.jpg"/>
+  <meta property="og:site_name" content="Game Center | WIP Camp #10"/>
+
+</head>
+
+<body class="body bggame">
+  <div class="Div mouse-bg" id="foreground">
+    <div class="DivCharacter1">
+      <img class="model1" src='./img/monkey.png'>
+      <img class="model2" src='./img/monkey2.png'>
+    </div>
+    <div class="DivCharacter2 ">
+      <img class="model3" src='./img/yak.png'>
+      <img class="model4" src='./img/yak2.png'>
+    </div>
+  </div>
+
+  <div class="Div2">
+    <div id="background" class="">
+      <img src="./img/gameCenter.png" class="gCenter" />
+      <a href="./ramrun" target="_blank">
+        <img class="game1" src="./img/logo1.png" />
+      </a>
+      <img class="game2" src="./img/what.png" />
+      <img class="torchMobileLeft lightTorchLeft" src="./img/lightTorchMobileLeft.png">
+      <img class="torchMobileLeft" src="./img/torchMobileLeft.png">
+      <img class="torchMobileRight lightTorchRight" src="./img/lightTorchMobileRight.png">
+      <img class="torchMobileRight" src="./img/torchMobileRight.png">
+      <img class="torchLeft lightTorchLeft" src="./img/lightTorchLeft.png">
+      <img class="torchLeft" src="./img/torchLeft.png">
+      <img class="torchRight lightTorchRight" src="./img/lightTorchRight.png">
+      <img class="torchRight" src="./img/torchRight.png">
+    </div>
+  </div>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="mouse.parallax.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#background').mouseParallax({
+        moveFactor: 5
+      });
+      $('#foreground').mouseParallax({
+        moveFactor: 5
+      });
+      $('#fore-foreground').mouseParallax({
+        moveFactor: 5
+      });
+      $('#fore-fore-foreground').mouseParallax({
+        moveFactor: 5
+      });
+
+      $('body').height(3000);
+    });
+  </script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+        '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+
+</html>

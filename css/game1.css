@@ -1,0 +1,42 @@
+body{
+  overflow: hidden;
+}
+.background{
+  background-image: url('../img/game1.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+@media(max-width:800px){
+  .logohidden{
+    display:none; 
+  }
+}
+
+@media(orientation:portrait)
+  and (max-width:800px){
+    .displayhidden{
+    display: none;
+  }
+}
+.blackbox{
+  width:800px;
+  height:600px;
+  background-color: black;
+}
+.game{
+  /* margin-top: 8%; */
+  display: block;
+  /* width: 800px;
+  height: 600px; */
+  border: .1em solid #fff;
+}
+.logo{
+  display: block;
+  width: 20%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+

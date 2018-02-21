@@ -259,10 +259,10 @@ function tomenu() {
 	game.state.start('Menu');
 }
 function tofacebook() {
-	var img = "../game1/images/logo_r.png";
+	var img = "https://game.wip.camp/game1/images/logo_r.png";
 	var desc = "เราได้"+score+"คะแนน มาเล่นกันเถอะ!";
 	var title = 'Ramrun';
-	var link = 'http://game.wip.camp/';
+	var link = 'https://game.wip.camp/';
 
 	// Open FB share popup
 	FB.ui({

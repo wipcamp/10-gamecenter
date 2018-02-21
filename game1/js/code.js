@@ -188,28 +188,10 @@ var htplay = true
 var gameoversound
 var selectmenu;
 var video;
-var scoreshow = {
-	name: '',
-	score: 0
-}
-var scoreshow2 = {
-	name: '',
-	score: 0
-}
-var scoreshow3 = {
-	name: '',
-	score: 0
-}
-var scoreshow4 = {
-	name: '',
-	score: 0
-}
-var scoreshow5 = {
-	name: '',
-	score: 0
-}
+var scoreshow = []
+
 var monkeyscore = {
-	score
+	
 }
 var giantscore = {
 
@@ -277,16 +259,17 @@ function tomenu() {
 	game.state.start('Menu');
 }
 function tofacebook() {
-	var img = "images/logo_r.png";
-	var desc = "Ramrun";
-	var title = 'Ramrun';
-	var link = 'http://pr.game.freezer.wip.camp/';
+	var img = "https://game.wip.camp/game1/images/logo_r.png";
+	var desc = "เราได้"+score+"คะแนน มาเล่นกันเถอะ! เจอกันที่ https://game.wip.camp/";
+	var title = 'Ramrun : WIP Camp #10';
+	var link = 'https://game.wip.camp/';
 
 	// Open FB share popup
 	FB.ui({
 		method: 'share_open_graph',
 		display: 'popup',
-		href: 'https://pr.game.freezer.wip.camp/',
+		href: 'https://game.wip.camp/',
+		hashtag: '#wipcamp10',
 		action_type: 'og.shares',
 		action_properties: JSON.stringify({
 			object: {
@@ -297,9 +280,10 @@ function tofacebook() {
 			}
 		})
 	},
-		function (response) {
-			// Action after response
-		});
+	function (response) {
+		console.log(response);
+		// Action after response
+	});
 }
 function toranking() {
 	buttonsound = game.add.audio('buttonsound');
@@ -882,45 +866,24 @@ function createIntro() {
 
 
 }
+var tae = []
+
+function sortScore(tae) {
+	tae = tae.sort(function (a, b) {
+		return b[1].score - a[1].score
+	});
+	return tae
+}
 
 function fetchScore() {
 	firebase.database()
-		.ref('score').child('/' + "").once('value').then(function (data) {
-			scoreshow.name = data.val().name
-			scoreshow.score = data.val().score
-		})
-	firebase.database()
-		.ref('score2').child('/' + "").once('value').then(function (data) {
-			scoreshow2.name = data.val().name
-			scoreshow2.score = data.val().score
-		})
-	firebase.database()
-		.ref('score3').child('/' + "").once('value').then(function (data) {
-			scoreshow3.name = data.val().name
-			scoreshow3.score = data.val().score
-		})
-	firebase.database()
-		.ref('score4').child('/' + "").once('value').then(function (data) {
-
-			scoreshow4.name = data.val().name
-			scoreshow4.score = data.val().score
-
-		})
-	firebase.database()
-		.ref('score5').child('/' + "").once('value').then(function (data) {
-			scoreshow5.name = data.val().name
-			scoreshow5.score = data.val().score
-		})
-	firebase.database()
-		.ref('MonkeySumScore').child('/' + "").once('value').then(function (data) {
-			monkeyscore.score = data.val().ScoreSum
-		})
-	firebase.database()
-		.ref('GiantSumScore').child('/' + "").once('value').then(function (data) {
-			giantscore.score = data.val().ScoreSum
-
-		})
-
+	.ref('prescore').child('/').orderByChild("score").limitToLast(5)
+	.once('value',function (data) {
+		tae = Object.keys(data.val()).map(function(key) {
+			return [key, data.val()[key]];
+		  });
+		scoreshow = sortScore(tae)
+	})
 }
 function updateIntro() {
 }
@@ -1512,7 +1475,7 @@ function update() {
 	}
 	if (score >= 3100 & score <= 3101) {
 		flashs()
-		score = 3;
+		scoreup = 3;
 		speed = 8;
 		speedobj = 700;
 		this.flag.loadTexture('flag')
@@ -1981,6 +1944,7 @@ function update2() {
 	//เปลี่ยนฉาก
 	if (score >= 1100 & score < 1101) {
 		flashs()
+		scoreup =2;
 		speed = 8;
 		speedobj = 700;
 		this.palacet.loadTexture('treet')
@@ -1988,6 +1952,7 @@ function update2() {
 	}
 	if (score >= 3100 & score <= 3101) {
 		flashs()
+		scoreup =3;
 		speed = 8;
 		speedobj = 700;
 		this.flag.loadTexture('flag')
@@ -2187,7 +2152,7 @@ function createGameOver() {
 	} else if (score <= 3100) {
 		funnytext = game.add.text(320, 280, "น่าประทับใจ!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
 	} else if (score <= 4000) {
-		funnytext = game.add.text(250, 280, "ช.. ช่างแข็งแกร่งยิ่งนัก!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
+		funnytext = game.add.text(250, 280, ".. ช่างแข็งแกร่งยิ่งนัก!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
 	}
 	else {
 		funnytext = game.add.text(250, 280, "เจ้าน่ะ.. ได้ตายไปแล้ว!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
@@ -2314,25 +2279,25 @@ function createleaderBoard() {
 
 function updateleaderBoard() {
 
-}
-function scoresboard() {
+}function scoresboard() {
 	fetchScore();
-	ชื่อ1 = game.add.text(200, 120, scoreshow.name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
-	ชื่อ2 = game.add.text(200, 190, scoreshow2.name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
-	ชื่อ3 = game.add.text(200, 260, scoreshow3.name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
-	ชื่อ4 = game.add.text(200, 330, scoreshow4.name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
-	ชื่อ5 = game.add.text(200, 400, scoreshow5.name, { font: "40px  Myfont1", fill: "#ffffff", align: "center" });
-	คะแนนที่1 = game.add.text(470, 110, scoreshow.score, { font: "70px Number", fill: "#ffffff", align: "center" });
-	คะแนนที่2 = game.add.text(470, 180, scoreshow2.score, { font: "70px Number", fill: "#ffffff", align: "center" });
-	คะแนนที่3 = game.add.text(470, 250, scoreshow3.score, { font: "70px Number", fill: "#ffffff", align: "center" });
-	คะแนนที่4 = game.add.text(470, 320, scoreshow4.score, { font: "70px Number", fill: "#ffffff", align: "center" });
-	คะแนนที่5 = game.add.text(470, 390, scoreshow5.score, { font: "70px Number", fill: "#ffffff", align: "center" });
+	console.log('scoreboard' , scoreshow)
+	ชื่อ1 = game.add.text(200, 120, scoreshow[0][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
+	ชื่อ2 = game.add.text(200, 190, scoreshow[1][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
+	ชื่อ3 = game.add.text(200, 260, scoreshow[2][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
+	ชื่อ4 = game.add.text(200, 330, scoreshow[3][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
+	ชื่อ5 = game.add.text(200, 400, scoreshow[4][1].name, { font: "40px  Myfont1", fill: "#ffffff", align: "center" });
+	คะแนนที่1 = game.add.text(470, 110, scoreshow[0][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่2 = game.add.text(470, 180, scoreshow[1][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่3 = game.add.text(470, 250, scoreshow[2][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่4 = game.add.text(470, 320, scoreshow[3][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่5 = game.add.text(470, 390, scoreshow[4][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
 
 }
 function checkScoremoreless() {
 	var temp;
 	fetchScore();
-	if (score >= scoreshow.score) {
+	if (score >= scoreshow[0].score) {
 		firebase.database()
 			.ref('score').child('/' + "")
 			.set({
@@ -2340,7 +2305,7 @@ function checkScoremoreless() {
 				score: score
 			})
 	}
-	else if (score >= scoreshow2.score) {
+	else if (score >= scoreshow[1].score) {
 		firebase.database()
 			.ref('score2').child('/' + "")
 			.set({
@@ -2348,7 +2313,7 @@ function checkScoremoreless() {
 				score: score
 			})
 	}
-	else if (score >= scoreshow3.score) {
+	else if (score >= scoreshow[2].score) {
 		firebase.database()
 			.ref('score3').child('/' + "")
 			.set({
@@ -2356,7 +2321,7 @@ function checkScoremoreless() {
 				score: score
 			})
 	}
-	else if (score >= scoreshow4.score) {
+	else if (score >= scoreshow[3].score) {
 		firebase.database()
 			.ref('score4').child('/' + "")
 			.set({
@@ -2364,7 +2329,7 @@ function checkScoremoreless() {
 				score: score
 			})
 	}
-	else if (score >= scoreshow5.score) {
+	else if (score >= scoreshow[4].score) {
 		firebase.database()
 			.ref('score5').child('/' + "")
 			.set({
@@ -2372,6 +2337,7 @@ function checkScoremoreless() {
 				score: score
 			})
 	}
+	
 }
 function totogame() {
 	if (selectmenu == 1) {

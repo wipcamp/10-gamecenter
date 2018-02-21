@@ -76,7 +76,7 @@
 .lightTorchLeft{
     animation-name: light;
     animation-iteration-count: infinite;
-    animation-duration: 5s;
+    animation-duration: 8s;
 }
 .torchLeft{
     position: absolute;
@@ -88,7 +88,7 @@
 .lightTorchRight{
     animation-name: light;
     animation-iteration-count: infinite;
-    animation-duration: 5s;
+    animation-duration: 10s;
     animation-delay: 0.5s;
 }
 .torchRight{
@@ -100,7 +100,11 @@
 }
 @keyframes light {
     0% {opacity: 0}
-    50% {opacity: 1}
+    15% {opacity: 1}
+    30% {opacity: 0}
+    55% {opacity: 1}
+    80% {opacity: 0}
+    90% {opacity: 1}
     100% {opacity: 0}
 }
 .Div3{

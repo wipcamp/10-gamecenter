@@ -1,0 +1,30 @@
+body{
+  background-image: url('../img/game1.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.progress{
+  width:50%;
+  height: 100px;  
+}
+
+@media(orientation:landscape)
+  and (max-width:800px){
+    .scorebarhidden{
+    display: none;
+  }
+}
+.blackbox{
+  width:800px;
+  height:600px;
+  background-color: black;
+}
+.game{
+  margin-top: 4%;
+  width: 800px;
+  height: 600px;
+  border: .1em solid #000;
+}
+.progress-bar{
+  height: 100px;
+} 

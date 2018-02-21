@@ -1,0 +1,25 @@
+body, html {
+  height: 100%;
+  }
+  .mouse-bg {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: fixed;
+  }
+  #background {
+  background-image: url('/img/bg1.png');
+  }
+  #foreground {
+  background-image: url('/img/bg2.png');
+  }
+  #fore-foreground {
+  background-image: url('/img/monkey.png');
+  }
+  #fore-fore-foreground {
+  background-image: url('/img/gameCenter.png');
+  }
+  #fore-fore-foreground1 {
+    background-image: url('/img/gameCenter.png');
+  }

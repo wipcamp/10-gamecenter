@@ -1,4 +1,4 @@
-body {
+.body {
     font-family: Pridi;
     src: url('../webfonts/Pridi-Light.ttf');
     overflow: hidden;
@@ -6,8 +6,8 @@ body {
     margin: 0;
 }
 .bggame{
-    background-color: #333;
     background-image: url('../img/bg1.png');
+    background-color: #333;
     background-size: 200%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -120,6 +120,7 @@ body {
     top: 30vh;
     left: 5vw;
     width: 40vw;
+    animation: pulse 1s infinite;
 }
 .game2{
     position: absolute;

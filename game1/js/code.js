@@ -280,6 +280,7 @@ function tofacebook() {
 		})
 	},
 	function (response) {
+		console.log(response);
 		// Action after response
 	});
 }

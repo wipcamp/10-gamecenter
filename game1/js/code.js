@@ -259,10 +259,10 @@ function tomenu() {
 	game.state.start('Menu');
 }
 function tofacebook() {
-	var img = "images/logo_r.png";
+	var img = "../game1/images/logo_r.png";
 	var desc = "Ramrun";
 	var title = 'Ramrun';
-	var link = 'http://pr.game.freezer.wip.camp/';
+	var link = 'http://game.wip.camp/';
 
 	// Open FB share popup
 	FB.ui({

@@ -5,6 +5,14 @@
     height: 100vh;
     margin: 0;
 }
+@keyframes fallingDown{
+    from {
+        margin-top: -10%;
+    }
+    to{
+        margin-top: 70%;
+    }
+}
 .bggame{
     background-image: url('../img/bg1.png');
     background-color: #333;
@@ -73,6 +81,11 @@
     bottom: 0;
     right: 0;
 }
+.lightTorchLeft{
+    animation-name: light;
+    animation-iteration-count: infinite;
+    animation-duration: 8s;
+}
 .torchLeft{
     position: absolute;
     height: 40vh;
@@ -80,12 +93,27 @@
     left: 15vw;
     display: none;
 }
+.lightTorchRight{
+    animation-name: light;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-delay: 0.5s;
+}
 .torchRight{
     position: absolute;
     height: 40vh;
     bottom: 0;
     right: 15vw;
     display: none;
+}
+@keyframes light {
+    0% {opacity: 0}
+    15% {opacity: 1}
+    30% {opacity: 0}
+    55% {opacity: 1}
+    80% {opacity: 0}
+    90% {opacity: 1}
+    100% {opacity: 0}
 }
 .Div3{
     position: relative;
@@ -98,12 +126,14 @@
     top: 5vh;
     left: 15vw;
     width: 70vw;
+    animation: fadeInDownBig 1.5s;
 }
 .game1{
     position: absolute;
     top: 30vh;
     left: 5vw;
     width: 40vw;
+    animation: pulse 1s infinite;
 }
 .game2{
     position: absolute;
@@ -111,6 +141,7 @@
     right: 10vw;
     width: 20vw;
 }
+
 @media (min-width: 414px) {
     .bggame{
         background-size: 150%;

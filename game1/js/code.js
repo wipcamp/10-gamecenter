@@ -260,7 +260,7 @@ function tomenu() {
 }
 function tofacebook() {
 	var img = "../game1/images/logo_r.png";
-	var desc = "Ramrun";
+	var desc = "เราได้"+score+"คะแนน มาเล่นกันเถอะ!";
 	var title = 'Ramrun';
 	var link = 'http://game.wip.camp/';
 

@@ -1,0 +1,22 @@
+body {
+    margin: 50px 0 0 0;
+    background: #aaee0b25;
+}
+a {
+    color: #1D3C5C;
+}
+.container {
+    text-align: center;
+    color: #fff;
+}
+#game canvas{
+    margin: 15px auto;
+}
+@font-face {
+  font-family: 'Myfont1';
+  src: url(BSRUBANSOMDEJ-SemiBold.otf);
+}
+@font-face {
+    font-family: 'Number';
+    src: url(THSarabunIT๙BoldItalic.ttf);
+}

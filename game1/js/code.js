@@ -191,7 +191,7 @@ var video;
 var scoreshow = []
 
 var monkeyscore = {
-	score
+	
 }
 var giantscore = {
 
@@ -1475,7 +1475,7 @@ function update() {
 	}
 	if (score >= 3100 & score <= 3101) {
 		flashs()
-		score = 3;
+		scoreup = 3;
 		speed = 8;
 		speedobj = 700;
 		this.flag.loadTexture('flag')
@@ -1944,6 +1944,7 @@ function update2() {
 	//เปลี่ยนฉาก
 	if (score >= 1100 & score < 1101) {
 		flashs()
+		scoreup =2;
 		speed = 8;
 		speedobj = 700;
 		this.palacet.loadTexture('treet')
@@ -1951,6 +1952,7 @@ function update2() {
 	}
 	if (score >= 3100 & score <= 3101) {
 		flashs()
+		scoreup =3;
 		speed = 8;
 		speedobj = 700;
 		this.flag.loadTexture('flag')
@@ -2150,7 +2152,7 @@ function createGameOver() {
 	} else if (score <= 3100) {
 		funnytext = game.add.text(320, 280, "น่าประทับใจ!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
 	} else if (score <= 4000) {
-		funnytext = game.add.text(250, 280, "ช.. ช่างแข็งแกร่งยิ่งนัก!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
+		funnytext = game.add.text(250, 280, ".. ช่างแข็งแกร่งยิ่งนัก!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
 	}
 	else {
 		funnytext = game.add.text(250, 280, "เจ้าน่ะ.. ได้ตายไปแล้ว!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });

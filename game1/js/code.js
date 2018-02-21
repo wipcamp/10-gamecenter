@@ -260,8 +260,8 @@ function tomenu() {
 }
 function tofacebook() {
 	var img = "https://game.wip.camp/game1/images/logo_r.png";
-	var desc = "เราได้"+score+"คะแนน มาเล่นกันเถอะ!";
-	var title = 'Ramrun';
+	var desc = "เราได้"+score+"คะแนน มาเล่นกันเถอะ! เจอกันที่ https://game.wip.camp/";
+	var title = 'Ramrun : WIP Camp #10';
 	var link = 'https://game.wip.camp/';
 
 	// Open FB share popup
@@ -269,6 +269,7 @@ function tofacebook() {
 		method: 'share_open_graph',
 		display: 'popup',
 		href: 'https://game.wip.camp/',
+		hashtag: '#wipcamp10',
 		action_type: 'og.shares',
 		action_properties: JSON.stringify({
 			object: {

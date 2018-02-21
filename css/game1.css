@@ -1,11 +1,12 @@
 body{
+  overflow: hidden;
+}
+.background{
   background-image: url('../img/game1.png'); 
   background-size: cover;
   background-repeat: no-repeat;
-}
-.progress{
-  width:50%;
-  height: 100px;  
+  height: 100vh;
+  width: 100vw;
 }
 
 @media(orientation:landscape)
@@ -20,11 +21,16 @@ body{
   background-color: black;
 }
 .game{
-  margin-top: 4%;
+  /* margin-top: 8%; */
   width: 800px;
   height: 600px;
   border: .1em solid #000;
 }
-.progress-bar{
-  height: 100px;
-} 
+.logo{
+  display: block;
+  width: 20%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+

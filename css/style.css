@@ -132,6 +132,10 @@
     right: 10vw;
     width: 20vw;
 }
+.stone {
+    width: 50%;
+    top: -100vh;
+}
 @media (min-width: 414px) {
     .bggame{
         background-size: 150%;

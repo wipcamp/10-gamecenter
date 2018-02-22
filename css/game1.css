@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: radial-gradient(#C33E1D,#AD2A0A);
+  background: radial-gradient(#EA3509, #C33E1D,#AD2A0A);
   flex-direction: column;
   color: #fff;
   text-align: center;

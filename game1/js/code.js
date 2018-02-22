@@ -283,7 +283,6 @@ function tofacebook() {
 		})
 	},
 		function (response) {
-			console.log(response);
 			// Action after response
 		});
 }
@@ -728,7 +727,6 @@ function HitObj(player, obj) {
 function Checkhp() {
 	if (Hp < 1) {
 		game.state.start('GameOver')
-		console.log("logined")
 	}
 }
 function getItemsheild(player, item) {
@@ -1302,7 +1300,7 @@ function create() {
 	โยชน์ = game.add.sprite(25, 25, 'โยชน์')
 	โยชน์.scale.setTo(0.25, 0.25)
 
-	text = game.add.text(175, 20, '', { font: "70px Number", fill: "#1b1a1a", align: "center" });
+	text = game.add.text(175, 600*0.0334, '', { font: "70px Number", fill: "#1b1a1a", align: "center" });
 
 	text2 = game.add.text(25, 70, 'ระวังธนูกำลังจะมาใน  : ', { font: "60px Number", fill: "#DC143C", align: "center" });
 	text2.visible = false;
@@ -1782,7 +1780,7 @@ function create2() {
 		'floorback'
 	);
 
-	text = game.add.text(175, 20, '', { font: "70px Number", fill: "#1b1a1a", align: "center" });
+	text = game.add.text(175, 600*0.0334, '', { font: "70px Number", fill: "#1b1a1a", align: "center" });
 
 	text2 = game.add.text(25, 70, 'ระวังธนูกำลังจะมาใน  : ', { font: "60px Number", fill: "#DC143C", align: "center" });
 	text2.visible = false;

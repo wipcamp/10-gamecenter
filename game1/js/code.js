@@ -261,7 +261,7 @@ function tomenu() {
 	game.state.start('Menu');
 }
 function tofacebook() {
-	var img = "https://game.wip.camp/game1/images/LOGONEW-01";
+	var img = "https://game.wip.camp/game1/images/LOGONEW-01.png";
 	var desc = "เราได้" + score + "คะแนน มาเล่นกันเถอะ! เจอกันที่ https://game.wip.camp/";
 	var title = 'Ramrun : WIP Camp #10';
 	var link = 'https://game.wip.camp/';

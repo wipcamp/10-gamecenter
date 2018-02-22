@@ -1,6 +1,4 @@
-body{
-  overflow: hidden;
-}
+
 .background{
   background-image: url('../img/game1.png'); 
   background-size: cover;

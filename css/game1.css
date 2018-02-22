@@ -3,8 +3,8 @@
   background-image: url('../img/game1.png'); 
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  background-attachment: fixed;
 }
 @media(max-width:800px){
   .logohidden{

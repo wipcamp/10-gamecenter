@@ -34,15 +34,18 @@ game.state.start('CutScene')
 
 function loginpreload() {
 	game.load.spritesheet('เข้าสู่ระบบเฟสบุ๊ก', '../game1/images/เข้าสู่ระบบเฟสบุ๊ก.png', 2015, 534, 2);
+	game.load.spritesheet('login-01', '../game1/images/login-01.png');
+
 
 }
 
 function logincreate() {
-	text = game.add.text(0, 40, 'Login FaceBook ก่อนเล่น', { font: "55px Number", fill: "#fff", align: "center" });
-	text2 = game.add.text(0, 120, '*ปิด block pop-up ด้วยนาจา*', { font: "55px Number", fill: "#fff", align: "center" });
 
-	loginfacebookl = game.add.button(200, 380, 'เข้าสู่ระบบเฟสบุ๊ก', openpopup, this, 1, 0, 1);
+
+	loginfacebookl = game.add.button(150, 250, 'เข้าสู่ระบบเฟสบุ๊ก', openpopup, this, 1, 0, 1);
 	loginfacebookl.scale.setTo(0.25, 0.25);
+	choose = game.add.sprite(0, -10, 'login-01');
+	choose.scale.setTo(0.25, 0.25)
 
 	loginfacebook()
 
@@ -94,7 +97,7 @@ function openpopup() {
 	FB.Event.subscribe('auth.authResponseChange', checkLoginState);
 	firebase.auth().signInWithPopup(provider).then(function (result) {
 		// This gives you a Facebook Access Token. You can use it to access the Facebook API.
-		 token = result.credential.accessToken;
+		token = result.credential.accessToken;
 		// The signed-in user info.
 		var user = result.user;
 		// ...
@@ -112,7 +115,7 @@ function openpopup() {
 		if (result.credential) {
 
 			// This gives you a Facebook Access Token. You can use it to access the Facebook API.
-			 token = result.credential.accessToken;
+			token = result.credential.accessToken;
 
 		}
 		var user = result.user;
@@ -191,7 +194,7 @@ var video;
 var scoreshow = []
 
 var monkeyscore = {
-	
+
 }
 var giantscore = {
 
@@ -259,8 +262,8 @@ function tomenu() {
 	game.state.start('Menu');
 }
 function tofacebook() {
-	var img = "https://game.wip.camp/game1/images/logo_r.png";
-	var desc = "เราได้"+score+"คะแนน มาเล่นกันเถอะ! เจอกันที่ https://game.wip.camp/";
+	var img = "https://game.wip.camp/game1/images/LOGONEW-01";
+	var desc = "เราได้" + score + "คะแนน มาเล่นกันเถอะ! เจอกันที่ https://game.wip.camp/";
 	var title = 'Ramrun : WIP Camp #10';
 	var link = 'https://game.wip.camp/';
 
@@ -280,10 +283,10 @@ function tofacebook() {
 			}
 		})
 	},
-	function (response) {
-		console.log(response);
-		// Action after response
-	});
+		function (response) {
+			console.log(response);
+			// Action after response
+		});
 }
 function toranking() {
 	buttonsound = game.add.audio('buttonsound');
@@ -517,7 +520,7 @@ function Entername2() {
 		// borderColor: '#000',
 		backgroundColor: '#425A40',
 		// borderRadius: 6,
-		placeHolder: '  ใส่ชื่อผู้เล่น',
+		placeHolder: '  ใส่ชื่อของเจ้า',
 		type: PhaserInput.InputType.name
 	});
 	pressenter = game.add.button(335, 380, 'yesconfirm', checkselect, this, 1, 0, 1);
@@ -857,11 +860,6 @@ function createIntro() {
 	monkeybutton.scale.setTo(0.175, 0.175)
 
 
-
-
-
-
-
 	fetchScore();
 
 
@@ -877,14 +875,38 @@ function sortScore(tae) {
 
 function fetchScore() {
 	firebase.database()
-	.ref('prescore').child('/').orderByChild("score").limitToLast(5)
-	.once('value',function (data) {
-		tae = Object.keys(data.val()).map(function(key) {
-			return [key, data.val()[key]];
-		  });
-		scoreshow = sortScore(tae)
-	})
+		.ref('prescore').child('/').orderByChild("score").limitToLast(5)
+		.once('value', function (data) {
+			tae = Object.keys(data.val()).map(function (key) {
+				return [key, data.val()[key]];
+			});
+			scoreshow = sortScore(tae)
+		})
+
+
 }
+function setScore() {
+	var highscore = 0;
+	var tem = firebase.database()
+		.ref('prescore').child('/' + token)
+	tem.on('value', function (snapshot) {
+		highscore = snapshot.val().score;
+		if (highscore == undefined) {
+			highscore = 0;
+		}
+	});
+	if (highscore < score) {
+		firebase.database()
+			.ref('prescore').child('/' + token).update(
+			{
+				"name": name,
+				"score": score,
+			}
+			);
+
+	}
+}
+
 function updateIntro() {
 }
 
@@ -1048,15 +1070,9 @@ function createMenu() {
 	game.add.tween(press).to({ alpha: 1 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, false);
 
 	option = game.add.button(715, 25, 'options', tosetting, this);
-
-	jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	name = nameplayer.value;
-	firebase.database()
-		.ref('prescore').child('/' + token)
-		.set({
-			name: name,
-			score: score
-		})
+	setScore()
+	jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 
 
@@ -1436,7 +1452,7 @@ function create() {
 	player.body.gravity.y = 2800;
 	player.enableBody = true;
 	player.body.collideWorldBounds = false;
-	
+
 	game.camera.follow(player);
 
 	cursors = game.input.keyboard.createCursorKeys();
@@ -1456,7 +1472,7 @@ function update() {
 	this.bushr.tilePosition.x -= 0.25 + speed
 	this.palacer.tilePosition.x -= 0.5 + speed
 	this.wallr.tilePosition.x -= 1 + speed
-	this.sign.tilePosition.x -=  -2.05 + speed
+	this.sign.tilePosition.x -= -2.05 + speed
 	this.floorback.tilePosition.x -= 1 + speed
 
 	speedobj += 0.0010
@@ -1666,7 +1682,7 @@ function preload2() {
 	game.load.audio('invisibleitem', '../game1/audio/invisibleitem.mp3')
 	game.load.audio('sheilditem', '../game1/audio/shielditem.mp3')
 	game.load.audio('itemx2', '../game1/audio/speeditem.mp3')
-	game.load.audio('hit', 'sound/hit.mp3')
+	game.load.audio('hit', '../game1/sound/hit.mp3')
 }
 function create2() {
 	game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
@@ -1934,7 +1950,7 @@ function update2() {
 	this.busht.tilePosition.x -= 0.25 + speed
 	this.palacet.tilePosition.x -= 0.5 + speed
 	this.wallt.tilePosition.x -= 1 + speed
-	this.sign.tilePosition.x -=-2.05 + speed
+	this.sign.tilePosition.x -= -2.05 + speed
 	this.floorback.tilePosition.x -= 1 + speed
 
 	speedobj += 0.0010
@@ -1944,7 +1960,7 @@ function update2() {
 	//เปลี่ยนฉาก
 	if (score >= 1100 & score < 1101) {
 		flashs()
-		scoreup =2;
+		scoreup = 2;
 		speed = 8;
 		speedobj = 700;
 		this.palacet.loadTexture('treet')
@@ -1952,7 +1968,7 @@ function update2() {
 	}
 	if (score >= 3100 & score <= 3101) {
 		flashs()
-		scoreup =3;
+		scoreup = 3;
 		speed = 8;
 		speedobj = 700;
 		this.flag.loadTexture('flag')
@@ -2110,7 +2126,6 @@ var yy = [];
 var zz = [];
 
 function createGameOver() {
-	jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	if (game.renderType === Phaser.WEBGL) {
 		max = 2000;
 	}
@@ -2160,17 +2175,11 @@ function createGameOver() {
 	gamebgm.stop();
 
 
-
-	firebase.database()
-		.ref('prescore').child('/' + token)
-		.set({
-			name: name,
-			score: score
-		})
-
-	checkScoremoreless();
-
+	setScore();
+	fetchScore();
 	SumScore();
+	
+	jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 
 }
@@ -2205,7 +2214,7 @@ function SumScore() {
 				ScoreSum: giantscore.score
 			})
 	}
-	fetchScore();
+	
 }
 ///////////////////////////////////////////////////////////////End Credit//////////////////////////////////////////////////////////////////////////
 function preloadEndcredit() {
@@ -2272,16 +2281,15 @@ function createleaderBoard() {
 	play.scale.setTo(0.25, 0.25)
 	หน้าหลัก = game.add.button(360, 490, 'หน้าหลัก', tomenu, this, 1, 0, 1);
 	หน้าหลัก.scale.setTo(0.25, 0.25)
-
+	fetchScore();
 	scoresboard()
 
 }
 
 function updateleaderBoard() {
 
-}function scoresboard() {
-	fetchScore();
-	console.log('scoreboard' , scoreshow)
+} function scoresboard() {
+	
 	ชื่อ1 = game.add.text(200, 120, scoreshow[0][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
 	ชื่อ2 = game.add.text(200, 190, scoreshow[1][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
 	ชื่อ3 = game.add.text(200, 260, scoreshow[2][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
@@ -2294,51 +2302,51 @@ function updateleaderBoard() {
 	คะแนนที่5 = game.add.text(470, 390, scoreshow[4][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
 
 }
-function checkScoremoreless() {
-	var temp;
-	fetchScore();
-	if (score >= scoreshow[0].score) {
-		firebase.database()
-			.ref('score').child('/' + "")
-			.set({
-				name: name,
-				score: score
-			})
-	}
-	else if (score >= scoreshow[1].score) {
-		firebase.database()
-			.ref('score2').child('/' + "")
-			.set({
-				name: name,
-				score: score
-			})
-	}
-	else if (score >= scoreshow[2].score) {
-		firebase.database()
-			.ref('score3').child('/' + "")
-			.set({
-				name: name,
-				score: score
-			})
-	}
-	else if (score >= scoreshow[3].score) {
-		firebase.database()
-			.ref('score4').child('/' + "")
-			.set({
-				name: name,
-				score: score
-			})
-	}
-	else if (score >= scoreshow[4].score) {
-		firebase.database()
-			.ref('score5').child('/' + "")
-			.set({
-				name: name,
-				score: score
-			})
-	}
-	
-}
+// function checkScoremoreless() {
+// 	var temp;
+// 	fetchScore();
+// 	if (score >= scoreshow[0].score) {
+// 		firebase.database()
+// 			.ref('score').child('/' + "")
+// 			.set({
+// 				name: name,
+// 				score: score
+// 			})
+// 	}
+// 	else if (score >= scoreshow[1].score) {
+// 		firebase.database()
+// 			.ref('score2').child('/' + "")
+// 			.set({
+// 				name: name,
+// 				score: score
+// 			})
+// 	}
+// 	else if (score >= scoreshow[2].score) {
+// 		firebase.database()
+// 			.ref('score3').child('/' + "")
+// 			.set({
+// 				name: name,
+// 				score: score
+// 			})
+// 	}
+// 	else if (score >= scoreshow[3].score) {
+// 		firebase.database()
+// 			.ref('score4').child('/' + "")
+// 			.set({
+// 				name: name,
+// 				score: score
+// 			})
+// 	}
+// 	else if (score >= scoreshow[4].score) {
+// 		firebase.database()
+// 			.ref('score5').child('/' + "")
+// 			.set({
+// 				name: name,
+// 				score: score
+// 			})
+// 	}
+
+// }
 function totogame() {
 	if (selectmenu == 1) {
 		buttonsound = game.add.audio('buttonsound');

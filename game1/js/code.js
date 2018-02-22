@@ -194,10 +194,10 @@ var video;
 var scoreshow = []
 
 var monkeyscore = {
-
+	score = 0
 }
 var giantscore = {
-
+	score = 0
 }
 
 
@@ -1225,6 +1225,12 @@ function create() {
 	probCliff = 0.4;
 	temtimerun = 0
 	itemtimeinvisible = 0
+	var monkeyscore = {
+		score = 0
+	}
+	var giantscore = {
+		score = 0
+	}
 
 
 	game.time.events.loop(timespeed, updateScore, this)
@@ -1705,6 +1711,12 @@ function create2() {
 	countStart = 20;
 	temtimerun = 0
 	itemtimeinvisible = 0
+	var monkeyscore = {
+		score = 0
+	}
+	var giantscore = {
+		score = 0
+	}
 
 	timespeed = game.time.events.loop(150, updateScore, this)
 

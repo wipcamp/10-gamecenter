@@ -3,9 +3,34 @@
   background-image: url('../img/game1.png'); 
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
+  background-position: center;
+  min-height: 100vh;
+  background-attachment: fixed;
 }
+
+.mobile {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(#C33E1D,#AD2A0A);
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+}
+
+.mobile img {
+  width: 70%;
+  padding: 20px 0;
+}
+
+@media (min-width: 0px) and (max-width: 799px) {
+  .mobile {
+    display: flex;   
+    font-size: 2em;
+  }
+}
+
 @media(max-width:800px){
   .logohidden{
     display:none; 

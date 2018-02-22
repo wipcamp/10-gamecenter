@@ -193,12 +193,11 @@ var selectmenu;
 var video;
 var scoreshow = []
 
-var monkeyscore = {
-	score = 0
-}
-var giantscore = {
-	score = 0
-}
+var monkeyscore = 0
+
+var giantscore = 0
+
+
 
 
 
@@ -881,6 +880,9 @@ function fetchScore() {
 				return [key, data.val()[key]];
 			});
 			scoreshow = sortScore(tae)
+
+			firebase.database()
+				.ref('Monkey').child('/')
 		})
 
 
@@ -1225,12 +1227,10 @@ function create() {
 	probCliff = 0.4;
 	temtimerun = 0
 	itemtimeinvisible = 0
-	var monkeyscore = {
-		score = 0
-	}
-	var giantscore = {
-		score = 0
-	}
+	var monkeyscore = 0
+
+	var giantscore = 0
+
 
 
 	game.time.events.loop(timespeed, updateScore, this)
@@ -1711,12 +1711,11 @@ function create2() {
 	countStart = 20;
 	temtimerun = 0
 	itemtimeinvisible = 0
-	var monkeyscore = {
-		score = 0
-	}
-	var giantscore = {
-		score = 0
-	}
+	var monkeyscore = 0
+
+	var giantscore = 0
+
+
 
 	timespeed = game.time.events.loop(150, updateScore, this)
 
@@ -2189,8 +2188,19 @@ function createGameOver() {
 
 	setScore();
 	fetchScore();
-	SumScore();
+
+	firebase.database()
+	.ref('MonkeySumScore').child('/' + "").once('value').then(function (data) {
+	  monkeyscore = data.val().ScoreSum
+	})
+	firebase.database()
+	.ref('GiantSumScore').child('/' + "").once('value').then(function (data) {
+	  giantscore = data.val().ScoreSum
 	
+	})
+
+	SumScore();
+
 	jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 
@@ -2212,21 +2222,21 @@ function updateGameOver() {
 
 function SumScore() {
 	if (selectmenu == 1) {
-		monkeyscore.score += score;
+		monkeyscore += score;
 		firebase.database()
 			.ref('MonkeySumScore').child('/' + "")
 			.set({
-				ScoreSum: monkeyscore.score
+				ScoreSum: monkeyscore
 			})
 	} else if (selectmenu == 2) {
-		giantscore.score += score;
+		giantscore += score;
 		firebase.database()
 			.ref('GiantSumScore').child('/' + "")
 			.set({
-				ScoreSum: giantscore.score
+				ScoreSum: giantscore
 			})
 	}
-	
+
 }
 ///////////////////////////////////////////////////////////////End Credit//////////////////////////////////////////////////////////////////////////
 function preloadEndcredit() {
@@ -2301,7 +2311,7 @@ function createleaderBoard() {
 function updateleaderBoard() {
 
 } function scoresboard() {
-	
+
 	ชื่อ1 = game.add.text(200, 120, scoreshow[0][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
 	ชื่อ2 = game.add.text(200, 190, scoreshow[1][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
 	ชื่อ3 = game.add.text(200, 260, scoreshow[2][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });

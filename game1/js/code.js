@@ -143,7 +143,7 @@ function loginupdate() {
 var player;
 var scoreup = 1;
 var Hp = 1;
-var score = 1;
+var สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก = 1;
 var text = 0;
 var pause;
 var speed = 5;
@@ -262,7 +262,7 @@ function tomenu() {
 }
 function tofacebook() {
 	var img = "https://game.wip.camp/game1/images/LOGONEW-01";
-	var desc = "เราได้" + score + "คะแนน มาเล่นกันเถอะ! เจอกันที่ https://game.wip.camp/";
+	var desc = "เราได้" + สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก + "คะแนน มาเล่นกันเถอะ! เจอกันที่ https://game.wip.camp/";
 	var title = 'Ramrun : WIP Camp #10';
 	var link = 'https://game.wip.camp/';
 
@@ -283,7 +283,6 @@ function tofacebook() {
 		})
 	},
 		function (response) {
-			console.log(response);
 			// Action after response
 		});
 }
@@ -702,8 +701,8 @@ function flashs() {
 }
 function updateScore() {
 	if (countStart >= 30) {
-		score += scoreup;
-		text.setText('' + score);
+		สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก += scoreup;
+		text.setText('' + สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก);
 
 		game.add.tween(text3).to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
 	} else if (countStart < 30) {
@@ -728,7 +727,6 @@ function HitObj(player, obj) {
 function Checkhp() {
 	if (Hp < 1) {
 		game.state.start('GameOver')
-		console.log("logined")
 	}
 }
 function getItemsheild(player, item) {
@@ -867,7 +865,7 @@ var tae = []
 
 function sortScore(tae) {
 	tae = tae.sort(function (a, b) {
-		return b[1].score - a[1].score
+		return b[1].สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก - a[1].สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก
 	});
 	return tae
 }
@@ -897,7 +895,7 @@ function setScore() {
 			highscore = 0;
 		}
 	});
-	if (highscore < score) {
+	if (highscore < สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก) {
 		firebase.database()
 			.ref('prescore').child('/' + token).update(
 			{
@@ -951,7 +949,7 @@ function createMenu() {
 	countjump = 2;
 	countdeploy1 = 500
 	countdeploy = 400
-	score = 1;
+	สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก = 1;
 	Hp = 1
 	itemCooldown = 10;
 	itemtimerun = -5;
@@ -1214,7 +1212,7 @@ function create() {
 	countjump = 2;
 	countdeploy1 = 500
 	countdeploy = 400
-	score = 1;
+	สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก = 1;
 	Hp = 1
 	itemCooldown = 10;
 	itemtimerun = -5;
@@ -1487,7 +1485,7 @@ function update() {
 	player.body.velocity.x = 0
 
 	//เปลี่ยนฉาก
-	if (score >= 1100 & score <= 1101) {
+	if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก >= 1100 & สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 1101) {
 		scoreup = 2;
 		flashs()
 		speed = 8;
@@ -1495,7 +1493,7 @@ function update() {
 		this.palacer.loadTexture('treer')
 		this.wallr.loadTexture('houser')
 	}
-	if (score >= 3100 & score <= 3101) {
+	if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก >= 3100 & สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 3101) {
 		flashs()
 		scoreup = 3;
 		speed = 8;
@@ -1551,7 +1549,7 @@ function update() {
 		speed = 50
 		speedobj = 900
 		itemtimerun--;
-		score = score + 1;
+		สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก = สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก + 1;
 		player.body.collideWorldBounds = true;
 	}
 
@@ -1698,7 +1696,7 @@ function create2() {
 	countjump = 2;
 	countdeploy1 = 500
 	countdeploy = 400
-	score = 1;
+	สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก = 1;
 	Hp = 1
 	itemCooldown = 10;
 	itemtimerun = -5;
@@ -1969,7 +1967,7 @@ function update2() {
 	timespeed -= 0.000010;
 
 	//เปลี่ยนฉาก
-	if (score >= 1100 & score < 1101) {
+	if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก >= 1100 & สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก < 1101) {
 		flashs()
 		scoreup = 2;
 		speed = 8;
@@ -1977,7 +1975,7 @@ function update2() {
 		this.palacet.loadTexture('treet')
 		this.wallt.loadTexture('houset')
 	}
-	if (score >= 3100 & score <= 3101) {
+	if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก >= 3100 & สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 3101) {
 		flashs()
 		scoreup = 3;
 		speed = 8;
@@ -2034,7 +2032,7 @@ function update2() {
 		speed = 50
 		speedobj = 900
 		itemtimerun--;
-		score = score + 1;
+		สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก = สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก + 1;
 	}
 
 	if (itemtimeinvisible == 0) {  ////ส่วนของ ล่องหน
@@ -2140,9 +2138,9 @@ function createGameOver() {
 	if (game.renderType === Phaser.WEBGL) {
 		max = 2000;
 	}
-	if (score <= 1100) {
+	if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 1100) {
 		screen1 = game.add.sprite(0, 0, 'gameoverscreen1')
-	} else if (score <= 3100) {
+	} else if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 3100) {
 		screen2 = game.add.sprite(0, 0, 'gameoverscreen2')
 	} else {
 		screen3 = game.add.sprite(0, 0, 'gameoverscreen3')
@@ -2159,7 +2157,7 @@ function createGameOver() {
 	สิ้นชีพ = game.add.sprite(350, 130, 'สิ้นชีพ')
 	สิ้นชีพ.scale.setTo(0.5, 0.5)
 
-	scoretext = game.add.text(450, 220, '' + score, { font: "50px Number", fill: "#FFFFFF", align: "center" });
+	scoretext = game.add.text(450, 220, '' + สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก, { font: "50px Number", fill: "#FFFFFF", align: "center" });
 
 	play = game.add.button(270, 340, 'play', toGame, this, 1, 0, 1);
 	play.scale.setTo(0.25, 0.25)
@@ -2169,15 +2167,15 @@ function createGameOver() {
 	แบ่งปัน.scale.setTo(0.25, 0.25)
 	ลำดับ = game.add.button(450, 430, 'ลำดับ', toranking, this, 1, 0, 1);
 	ลำดับ.scale.setTo(0.25, 0.25)
-	if (score <= 500) {
+	if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 500) {
 		funnytext = game.add.text(265, 280, "เจ้านี่มันอ่อนหัดจริงๆ!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
-	} else if (score <= 1100) {
+	} else if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 1100) {
 		funnytext = game.add.text(270, 280, "ไปฝึกวิชามาใหม่ไป๊!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
-	} else if (score <= 2100) {
+	} else if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 2100) {
 		funnytext = game.add.text(300, 280, "ฝีมือมิเลวเลยนี่!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
-	} else if (score <= 3100) {
+	} else if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 3100) {
 		funnytext = game.add.text(320, 280, "น่าประทับใจ!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
-	} else if (score <= 4000) {
+	} else if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 4000) {
 		funnytext = game.add.text(250, 280, ".. ช่างแข็งแกร่งยิ่งนัก!", { font: "40px Myfont1", fill: "#FFFFFF", align: "center" });
 	}
 	else {
@@ -2222,14 +2220,14 @@ function updateGameOver() {
 
 function SumScore() {
 	if (selectmenu == 1) {
-		monkeyscore += score;
+		monkeyscore += สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก;
 		firebase.database()
 			.ref('MonkeySumScore').child('/' + "")
 			.set({
 				ScoreSum: monkeyscore
 			})
 	} else if (selectmenu == 2) {
-		giantscore += score;
+		giantscore += สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก;
 		firebase.database()
 			.ref('GiantSumScore').child('/' + "")
 			.set({
@@ -2285,9 +2283,9 @@ function preloadleaderBoard() {
 	game.load.spritesheet('หน้าหลัก', '../game1/images/หน้าหลัก.png', 638, 180);
 }
 function createleaderBoard() {
-	if (score <= 1100) {
+	if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 1100) {
 		screen1 = game.add.sprite(0, 0, 'gameoverscreen1')
-	} else if (score <= 3100) {
+	} else if (สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก <= 3100) {
 		screen2 = game.add.sprite(0, 0, 'gameoverscreen2')
 	} else {
 		screen3 = game.add.sprite(0, 0, 'gameoverscreen3')
@@ -2317,58 +2315,14 @@ function updateleaderBoard() {
 	ชื่อ3 = game.add.text(200, 260, scoreshow[2][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
 	ชื่อ4 = game.add.text(200, 330, scoreshow[3][1].name, { font: "40px Myfont1", fill: "#ffffff", align: "center" });
 	ชื่อ5 = game.add.text(200, 400, scoreshow[4][1].name, { font: "40px  Myfont1", fill: "#ffffff", align: "center" });
-	คะแนนที่1 = game.add.text(470, 110, scoreshow[0][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
-	คะแนนที่2 = game.add.text(470, 180, scoreshow[1][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
-	คะแนนที่3 = game.add.text(470, 250, scoreshow[2][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
-	คะแนนที่4 = game.add.text(470, 320, scoreshow[3][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
-	คะแนนที่5 = game.add.text(470, 390, scoreshow[4][1].score, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่1 = game.add.text(470, 110, scoreshow[0][1].สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่2 = game.add.text(470, 180, scoreshow[1][1].สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่3 = game.add.text(470, 250, scoreshow[2][1].สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่4 = game.add.text(470, 320, scoreshow[3][1].สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก, { font: "70px Number", fill: "#ffffff", align: "center" });
+	คะแนนที่5 = game.add.text(470, 390, scoreshow[4][1].สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก, { font: "70px Number", fill: "#ffffff", align: "center" });
 
 }
-// function checkScoremoreless() {
-// 	var temp;
-// 	fetchScore();
-// 	if (score >= scoreshow[0].score) {
-// 		firebase.database()
-// 			.ref('score').child('/' + "")
-// 			.set({
-// 				name: name,
-// 				score: score
-// 			})
-// 	}
-// 	else if (score >= scoreshow[1].score) {
-// 		firebase.database()
-// 			.ref('score2').child('/' + "")
-// 			.set({
-// 				name: name,
-// 				score: score
-// 			})
-// 	}
-// 	else if (score >= scoreshow[2].score) {
-// 		firebase.database()
-// 			.ref('score3').child('/' + "")
-// 			.set({
-// 				name: name,
-// 				score: score
-// 			})
-// 	}
-// 	else if (score >= scoreshow[3].score) {
-// 		firebase.database()
-// 			.ref('score4').child('/' + "")
-// 			.set({
-// 				name: name,
-// 				score: score
-// 			})
-// 	}
-// 	else if (score >= scoreshow[4].score) {
-// 		firebase.database()
-// 			.ref('score5').child('/' + "")
-// 			.set({
-// 				name: name,
-// 				score: score
-// 			})
-// 	}
 
-// }
 function totogame() {
 	if (selectmenu == 1) {
 		buttonsound = game.add.audio('buttonsound');

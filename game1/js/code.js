@@ -19,6 +19,7 @@ var GamePlayGiant = { preload: preload2, create: create2, update: update2, rende
 var GameOver = { preload: preloadGameOver, create: createGameOver, update: updateGameOver }
 var Login = { preload: loginpreload, create: logincreate, update: loginupdate }
 var token = null;
+var countdown = 200;
 game.state.add('Menu', Menu)
 game.state.add('Intro', Intro)
 game.state.add('LeaderBoard', LeaderBoard)
@@ -900,7 +901,7 @@ function setScore() {
 			.ref('prescore').child('/' + token).update(
 			{
 				"name": name,
-				"score": score,
+				"score": สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก,
 			}
 			);
 
@@ -2186,48 +2187,56 @@ function createGameOver() {
 
 	setScore();
 	fetchScore();
-
 	firebase.database()
 	.ref('MonkeySumScore').child('/' + "").once('value').then(function (data) {
 	  monkeyscore = data.val().ScoreSum
+	  monkeyscore += สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก;
+
+	  SumScore();
 	})
 	firebase.database()
 	.ref('GiantSumScore').child('/' + "").once('value').then(function (data) {
 	  giantscore = data.val().ScoreSum
-	
+	  giantscore += สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก;
+
+	  SumScore();
 	})
+	countdown = 200
 
-	SumScore();
-
+	
 	jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 
 }
 function updateGameOver() {
-	if (jumpButton.isDown) {
-		if (selectmenu == 1) {
-			gameoversound.stop();
-			game.state.start('GamePlay1');
+	countdown--;
+	if (countdown < -50) {
 
-		} else if (selectmenu == 2) {
-			gameoversound.stop();
-			game.state.start('GamePlay2');
+		if (jumpButton.isDown) {
+			if (selectmenu == 1) {
+				gameoversound.stop();
+				game.state.start('GamePlay1');
 
+			} else if (selectmenu == 2) {
+				gameoversound.stop();
+				game.state.start('GamePlay2');
+
+			}
 		}
 	}
+
 }
 
 
 function SumScore() {
+	
 	if (selectmenu == 1) {
-		monkeyscore += สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก;
 		firebase.database()
 			.ref('MonkeySumScore').child('/' + "")
 			.set({
 				ScoreSum: monkeyscore
 			})
 	} else if (selectmenu == 2) {
-		giantscore += สมปองคาแนนสLLLllกฟหกฟสหกฟหาดนฟด่ฟหกหฟกไฟหก;
 		firebase.database()
 			.ref('GiantSumScore').child('/' + "")
 			.set({
